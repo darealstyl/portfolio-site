@@ -1,0 +1,146 @@
+/* Reset default styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Apply modern font */
+body {
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+/* Container styling */
+.portfolio-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+/* Header styling */
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 500;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+header h1 {
+  font-size: 2em;
+}
+
+header h2 {
+  font-size: 1.5em;
+}
+
+header a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 700;
+  margin-left: 20px;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 30px;
+
+}
+/* Project tile styling */
+.project-tile {
+  background-color: #fcd4d4;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Project header styling */
+.project-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.project-header:hover {
+  background-color: #e9ecef;
+}
+
+.project-header h2 {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.toggle-button {
+  font-size: 1.5em;
+  font-weight: 700;
+  transition: transform 0.3s;
+}
+
+.project-content {
+  max-height: 0;            /* Start with max-height of 0 to hide content */
+  overflow: hidden;         /* Hide overflowing content when closed */
+  padding: 0 20px;          /* Ensure padding is set initially to control spacing */
+  opacity: 0;               /* Start with opacity 0 */
+  transition: max-height 0.5s ease-out, opacity 0.5s ease-out, padding 0.5s ease-out;
+}
+
+.project-content.open {
+  max-height: 500px;        /* Set a sufficiently large value for the max-height to fully expand */
+  opacity: 1;               /* Fully visible when open */
+  padding: 20px;            /* Add padding when opened */
+}
+
+
+.project-content p {
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+/* .project-content img {
+  width: 100%;
+  height: 0%;
+  border-radius: 5px;
+  margin-bottom: 15px;
+} */
+
+.image-tile img {
+  width: 100%;           /* Make the image fill the width of the container */
+  height: 100%;          /* Make the image fill the height of the container */
+  object-fit: cover;     /* Ensure the image covers the container without distortion */
+  aspect-ratio: 1 / 1;   /* Maintain a 1:1 aspect ratio */
+  border-radius: 8px;    /* Optional: Add some rounding to the edges if needed */
+}
+
+/* Set the size for the image container to make it square */
+.image-tile {
+  width: 200px;          /* Adjust as needed for desired size */
+  height: 200px;         /* Match width to keep the container square */
+  overflow: hidden;      /* Hide any parts of the image that overflow the container */
+  float: right;
+}
+
+
+
+/* Animation for content reveal */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
