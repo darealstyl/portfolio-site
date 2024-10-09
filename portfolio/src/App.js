@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import ProjectTile from './components/ProjectTile';
 import project1image from './img/project1.png';
 import Header from './components/Header';
+import { Canvas } from '@react-three/fiber';
+import Background from './components/Background';
 
 function App() {
+  const [fadeTiles, setFadeTiles] = useState(false);
   const projects = [
     {
       title: 'Project Title 1',
@@ -28,23 +31,54 @@ function App() {
     // Add more projects here
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition > 50) {
+        setFadeTiles(true);
+      } else {
+        setFadeTiles(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     // Add a header component here
 
-    <div className="portfolio-container">
+    <div className="app-container">
+
+      {/* Absolute positioned Canvas */}
+      <Canvas className="background-canvas">
+        <Background />
+      </Canvas>
       <Header />
-      {/* <h1>My Portfolio</h1> */}
-      <div className="projects">
-        {projects.map((project, index) => (
-          <ProjectTile
-            key={index}
-            title={project.title}
-            content={project.content}
-            link={project.link}
-            image={project.image}
-          />
-        ))}
+      <div className="content">
+        
+        {/* <h1>My Portfolio</h1> */}
+        <div className="portfolio-container">
+          <div className="projects">
+          {projects.map((project, index) => (
+            <ProjectTile
+              key={index}
+              title={project.title}
+              content={project.content}
+              link={project.link}
+              image={project.image}
+              // className={fadeTiles ? 'fade-out' : ''}
+            />
+          ))}
+        </div>
+        </div>
+        
       </div>
+
+
+      {/* Other content can go here */}
     </div>
   );
 }

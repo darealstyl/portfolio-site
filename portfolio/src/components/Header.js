@@ -1,7 +1,7 @@
 function Header() {
     return (
         <header>
-            <h1>JONAH BALL</h1>
+            <h1>Jonah Ball</h1>
             <div>
                 <a href="#about">About</a>
                 <a href="#projects">Projects</a>
