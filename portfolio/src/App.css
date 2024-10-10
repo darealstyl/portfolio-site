@@ -13,17 +13,83 @@ body {
   color: #333; /* Dark text for readability */
 }
 
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+
 .app-container {
-  width: 70%;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full viewport height */
 }
 
 /* Container styling */
 .portfolio-container {
   max-width: 800px;
-  margin: 100px auto 50px auto;
+  margin: 50px auto 50px auto;
   padding: 0 20px;
 }
+
+/* Shared container styling for About and Resume pages */
+.about-container, .resume-container {
+  max-width: 800px;
+  margin: 10px auto; /* Center the container with space above and below */
+  padding: 0 20px;
+  background-color: #ffffffd5; /* Background similar to project tiles */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px; /* Rounded corners for consistency */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.about-container:hover, .resume-container:hover {
+  /* transform: translateY(-5px); */
+  /* box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15); */
+}
+
+.about-container h2, .resume-container h2 {
+  font-family: 'Poppins', sans-serif; /* Heading font */
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #333;
+}
+
+.about-container h1, .resume-container h1 {
+  font-family: 'Poppins', sans-serif; /* Heading font */
+  font-size: 2.2em;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.about-container p, .resume-container p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Animation for content reveal for both about and resume pages */
+.about-container, .resume-container {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 
 .background-canvas {
   position: fixed !important;
@@ -37,13 +103,20 @@ body {
 .content {
   position: relative;
   z-index: 1;
-  padding-top: 150px;
+  padding-top: 180px;
+  width: 100%; /* Full width but constrained by max-width */
+  max-width: 1200px; /* You can adjust this to a suitable maximum width */
+  /* min-width: 800px; */
+  margin: 0 auto; /* Center content */
+  padding-left: 20px; /* Add padding for small screens */
+  padding-right: 20px; /* Add padding for small screens */
 }
 
 /* Header styling */
 h1 {
   text-align: center;
-  margin-bottom: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   font-weight: 500;
 }
 
@@ -53,19 +126,50 @@ header {
   left: 0;
   width: 100%;
   z-index: 10; /* Ensure it's above the rest of the content */
-  background: rgba(255, 255, 255, 0.233); /* Slight transparency */
-  padding: 10px;
+  background: rgba(255, 255, 255, 0.8); /* Light, semi-transparent */
+  padding: 20px;
   flex: auto;
   justify-content: space-around;
   text-align: center;
   backdrop-filter: blur(10px); /* Optional: Add blur effect */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+  margin-bottom: 15px;
 }
 
+.scrollable-content {
+  margin-top: 135px; /* Push content below the header */
+  overflow-y: auto;
+  flex-grow: 1;
+  padding: 20px;
+  scrollbar-gutter: stable both-edges;
+  position: relative;
+}
+
+/* Webkit-based browsers (Chrome, Safari, Edge) custom scrollbar */
+.scrollable-content::-webkit-scrollbar {
+  width: 12px;
+  margin-right: -5px;
+}
+
+.scrollable-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb {
+  background-color: #a9a9a9;
+  border-radius: 999px;
+  border: 3px solid transparent;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb:hover {
+  background-color: #808080;
+}
+
+
 header h1 {
-  /* font-size: 2em; */
+  font-family: 'Poppins', sans-serif; /* Modern font for headings */
+  font-size: 2em;
   color: #333;
-  margin-top: 40px;
 }
 
 header h2 {
@@ -75,8 +179,14 @@ header h2 {
 header a {
   text-decoration: none;
   font-weight: 500;
+  font-family: 'Poppins', sans-serif;
   color: #333;
   margin-left: 20px;
+  transition: color 0.3s ease;
+}
+
+header a:hover {
+  color: #ff6b6b; /* Coral color on hover */
 }
 
 .projects {
@@ -87,21 +197,22 @@ header a {
 
 /* Project tile styling */
 .project-tile {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: #fcd4d4;
-  width: 300px;
-  /* Adjust width as needed */
+  background-color: #ffffffd5;
+  color: #333;
+  width: 350px;
   height: 450px;
-  /* Ensure the card is taller than it is wide */
   margin: 30px auto;
-  /* Center cards */
   border-radius: 10px;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  padding: 20px;
-  /* transition: opacity 0.5s ease-in-out; */
+  padding: 0px;
+  
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-tile:hover {
+  transform: translateY(-5px); /* Hover lift effect */
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
 }
 
 
@@ -111,31 +222,29 @@ header a {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 25px;
-  cursor: pointer;
+  padding: 10px;
+  /* cursor: pointer; */
   transition: background-color 0.3s;
 }
 
 .project-header:hover {
-  background-color: #e9ecef;
+  /* background-color: #e9ecef; */
 }
 
 .project-header h2 {
+  font-family: 'Poppins', sans-serif;
   font-size: 1.5em;
   font-weight: 700;
+  margin-bottom: 10px;
 }
 
-.toggle-button {
-  font-size: 1.5em;
-  font-weight: 700;
-  transition: transform 0.3s;
-}
 
 .project-content {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 20px;
 }
 
 .project-content h2 {
@@ -145,16 +254,22 @@ header a {
 }
 
 .project-content p {
+  font-family: 'Roboto', sans-serif;
   font-size: 1em;
   line-height: 1.6;
   margin-bottom: 20px;
 }
 
 .project-content a {
-  align-self: flex-end;
+  font-family: 'Poppins', sans-serif;
+  color: #4ecdc4; /* Teal color */
   text-decoration: none;
-  color: #333;
   font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.project-content a:hover {
+  color: #ff6b6b; /* Coral color on hover */
 }
 
 
@@ -162,24 +277,99 @@ header a {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Ensures image fills container without distortion */
+  border-radius: 2px;
+  /* margin-bottom: 15px; */
 }
 
 /* Set the size for the image container to make it square */
 .image-tile {
   flex-shrink: 0;
-  height: 250px;
+  height: 150px;
   /* Adjust height */
   overflow: hidden;
-  border-radius: 8px;
-  margin-bottom: 15px;
+  border-radius: 0px;
+  /* margin-bottom: 15px; */
 }
+
+.image-overlay {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 100%);
+  pointer-events: none; /* Ensure the overlay doesn't block interactions */
+}
+
+/* Accordion styling */
+.accordion {
+  background-color: #ffffffd5;
+  color: #333;
+  width: 100%;
+  margin: 30px auto;
+  border-radius: 10px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.accordion:hover {
+  transform: translateY(-5px); /* Hover lift effect similar to portfolio tiles */
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Accordion header styling */
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  cursor: pointer;
+  background-color: #f5f5f5;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5em;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+  background-color: #e0e0e0; /* Change background color on hover */
+}
+
+/* Smooth transition for content opening */
+.accordion-content {
+  overflow: hidden; /* Hide content when closed */
+  height: 0; /* Default height */
+  transition: height 0.3s ease; /* Smooth height change */
+}
+
+.accordion-inner-content {
+  padding: 20px; /* Padding for the inner content */
+  background-color: #ffffff; /* White background for content */
+}
+
+.accordion-content p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+
+
 
 
 @media (max-width: 888px) {
   .projects {
     grid-template-columns: 1fr;
   }
+
+  .portfolio-container {
+    /* width: 100%; */
+    min-width: none;
+    padding: 0 20px;
+  }
+
 }
 
 
@@ -192,4 +382,39 @@ header a {
   to {
     opacity: 1;
   }
+}
+
+
+
+
+/* Fade In/Out Transitions */
+
+/* Exit Transition */
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+  z-index: 1; /* Ensure exiting element is still visible during exit */
+}
+
+/* Enter Transition */
+.fade-enter {
+  opacity: 0; /* Start with the element fully invisible */
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+  z-index: 5; /* Entering element is on top */
+}
+
+/* Position the page content absolutely */
+.page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }

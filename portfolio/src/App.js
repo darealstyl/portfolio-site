@@ -1,86 +1,55 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import './App.css';
-import ProjectTile from './components/ProjectTile';
-import project1image from './img/project1.png';
 import Header from './components/Header';
-import { Canvas } from '@react-three/fiber';
 import Background from './components/Background';
+import About from './pages/About';
+import Resume from './pages/Resume';
+import Projects from './pages/Projects';
+import { Canvas } from '@react-three/fiber';
 
 function App() {
-  const [fadeTiles, setFadeTiles] = useState(false);
-  const projects = [
-    {
-      title: 'Project Title 1',
-      content: 'Detailed information about Project 1.',
-      link: 'https://www.example.com',
-      linkText: 'View Project 1',
-      image: project1image,
-    },
-    {
-      title: 'Project Title 2',
-      content: 'Detailed information about Project 2.',
-    },
-    {
-      title: 'Project Title 3',
-      content: 'Detailed information about Project 2.',
-    },
-    {
-      title: 'Project Title 4',
-      content: 'Detailed information about Project 2.',
-    },
-    // Add more projects here
-  ];
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      if (scrollPosition > 50) {
-        setFadeTiles(true);
-      } else {
-        setFadeTiles(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  const location = useLocation(); // Get the current location from react-router
 
   return (
-    // Add a header component here
-
     <div className="app-container">
+      {/* Fixed Header */}
+      < Header />
 
-      {/* Absolute positioned Canvas */}
-      <Canvas className="background-canvas">
+      {/* Background */}
+      <Canvas className="background-canvas" >
         <Background />
       </Canvas>
-      <Header />
-      <div className="content">
-        
-        {/* <h1>My Portfolio</h1> */}
-        <div className="portfolio-container">
-          <div className="projects">
-          {projects.map((project, index) => (
-            <ProjectTile
-              key={index}
-              title={project.title}
-              content={project.content}
-              link={project.link}
-              image={project.image}
-              // className={fadeTiles ? 'fade-out' : ''}
-            />
-          ))}
-        </div>
-        </div>
-        
+
+      {/* Fade Transitions for Routes */}
+      <div className="scrollable-content" >
+        <TransitionGroup component={null}>
+          <CSSTransition
+            key={location.key}
+            classNames="fade"
+            timeout={{ enter: 2000, exit: 500 }} /* Use different timings for enter and exit */
+            unmountOnExit /* Ensure the element is removed from the DOM after exit */
+            appear
+          >
+            <div className="page">
+              <Routes location={location}>
+                <Route path="/" element={<Projects />} /> {/* Default projects page */}
+                <Route path="/about" element={<About />} /> {/* About page */}
+                <Route path="/resume" element={<Resume />} /> {/* Resume page */}
+              </Routes>
+            </div>
+          </CSSTransition>
+        </TransitionGroup>
       </div>
-
-
-      {/* Other content can go here */}
     </div>
   );
 }
 
-export default App;
+export default function AppWrapper() {
+  return (
+    <Router>
+      <App />
+    </Router>
+  );
+}
