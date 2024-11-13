@@ -4,6 +4,7 @@ import project1image from '../img/project1.png';
 import project2image from '../img/project2.png';
 import project3image from '../img/project3.png';
 import project4image from '../img/project4.png';
+import project5image from '../img/project5.png';
 
 function Projects() {
   const projects = [
@@ -35,13 +36,13 @@ function Projects() {
       linkText: 'View Project 4',
       image: project4image,
     },
-    // {
-    //   title: 'Endless Driver',
-    //   content: 'Detailed information about Project 2.',
-    //   link: "",
-    //   linkText: 'View Project 5',
-    //   image: project3image,
-    // },
+    {
+      title: 'Endless Driver',
+      content: 'This is an on-rails driving game created as a project for a game development course. The game was made with Unity and features a procedurally generated track, obstacles, and a scoring system.',
+      link: "https://github.com/darealstyl/Endless-Driver",
+      linkText: 'View Project 5',
+      image: project5image,
+    },
     // {
     //   title: '',
     //   content: 'Detailed information about Project 2.',
