@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="app-container">
       {/* Fixed Header */}
-      < Header />
+      <Header />
 
       {/* Background */}
       <Canvas className="background-canvas" >
@@ -35,8 +35,8 @@ function App() {
             <div className="page">
               <Routes location={location}>
                 <Route path="/" element={<Projects />} /> {/* Default projects page */}
-                <Route path="/about" element={<About />} /> {/* About page */}
-                <Route path="/resume" element={<Resume />} /> {/* Resume page */}
+                <Route path="about" element={<About />} /> {/* About page */}
+                <Route path="resume" element={<Resume />} /> {/* Resume page */}
               </Routes>
             </div>
           </CSSTransition>
@@ -48,7 +48,7 @@ function App() {
 
 export default function AppWrapper() {
   return (
-    <Router>
+    <Router basename='/portfolio-site'>
       <App />
     </Router>
   );

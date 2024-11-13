@@ -7,8 +7,8 @@ function Header() {
       <h1>Jonah Ball</h1>
       <nav>
         <Link to="/">Projects</Link>
-        <Link to="/about">About</Link>
-        <Link to="/resume">Resume</Link>
+        {/* <Link to="about">About</Link> */}
+        <Link to="resume">Resume</Link>
       </nav>
     </header>
   );
