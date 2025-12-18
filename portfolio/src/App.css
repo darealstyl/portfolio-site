@@ -9,11 +9,14 @@
 /* Apply modern font */
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #f5f5f5; /* Light background */
-  color: #333; /* Dark text for readability */
+  background-color: #f5f5f5;
+  /* Light background */
+  color: #333;
+  /* Dark text for readability */
 }
 
-body, html {
+body,
+html {
   height: 100%;
   margin: 0;
 }
@@ -22,7 +25,8 @@ body, html {
 .app-container {
   display: flex;
   flex-direction: column;
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
+  /* Full viewport height */
 }
 
 /* Container styling */
@@ -33,24 +37,31 @@ body, html {
 }
 
 /* Shared container styling for About and Resume pages */
-.about-container, .resume-container {
+.about-container,
+.resume-container {
   max-width: 800px;
-  margin: 10px auto; /* Center the container with space above and below */
+  margin: 10px auto;
+  /* Center the container with space above and below */
   padding: 0 20px;
-  background-color: #ffffffd5; /* Background similar to project tiles */
+  background-color: #ffffffd5;
+  /* Background similar to project tiles */
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px; /* Rounded corners for consistency */
+  border-radius: 10px;
+  /* Rounded corners for consistency */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
 }
 
-.about-container:hover, .resume-container:hover {
+.about-container:hover,
+.resume-container:hover {
   /* transform: translateY(-5px); */
   /* box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15); */
 }
 
-.about-container h2, .resume-container h2 {
-  font-family: 'Poppins', sans-serif; /* Heading font */
+.about-container h2,
+.resume-container h2 {
+  font-family: 'Poppins', sans-serif;
+  /* Heading font */
   font-size: 1.3em;
   font-weight: 600;
   margin-bottom: 10px;
@@ -58,8 +69,10 @@ body, html {
   color: #333;
 }
 
-.about-container h1, .resume-container h1 {
-  font-family: 'Poppins', sans-serif; /* Heading font */
+.about-container h1,
+.resume-container h1 {
+  font-family: 'Poppins', sans-serif;
+  /* Heading font */
   font-size: 2.2em;
   font-weight: 600;
   margin-top: 20px;
@@ -68,7 +81,8 @@ body, html {
   color: #333;
 }
 
-.about-container p, .resume-container p {
+.about-container p,
+.resume-container p {
   font-family: 'Roboto', sans-serif;
   font-size: 1em;
   line-height: 1.6;
@@ -77,7 +91,8 @@ body, html {
 }
 
 /* Animation for content reveal for both about and resume pages */
-.about-container, .resume-container {
+.about-container,
+.resume-container {
   animation: fadeIn 1s ease-in;
 }
 
@@ -85,6 +100,7 @@ body, html {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -104,12 +120,17 @@ body, html {
   position: relative;
   z-index: 1;
   padding-top: 180px;
-  width: 100%; /* Full width but constrained by max-width */
-  max-width: 1200px; /* You can adjust this to a suitable maximum width */
+  width: 100%;
+  /* Full width but constrained by max-width */
+  max-width: 1200px;
+  /* You can adjust this to a suitable maximum width */
   /* min-width: 800px; */
-  margin: 0 auto; /* Center content */
-  padding-left: 20px; /* Add padding for small screens */
-  padding-right: 20px; /* Add padding for small screens */
+  margin: 0 auto;
+  /* Center content */
+  padding-left: 20px;
+  /* Add padding for small screens */
+  padding-right: 20px;
+  /* Add padding for small screens */
 }
 
 /* Header styling */
@@ -121,23 +142,29 @@ h1 {
 }
 
 header {
-  position: fixed; /* Absolute positioning at the top */
+  position: fixed;
+  /* Absolute positioning at the top */
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 10; /* Ensure it's above the rest of the content */
-  background: rgba(255, 255, 255, 0.8); /* Light, semi-transparent */
+  z-index: 10;
+  /* Ensure it's above the rest of the content */
+  background: rgba(255, 255, 255, 0.8);
+  /* Light, semi-transparent */
   padding: 20px;
   flex: auto;
   justify-content: space-around;
   text-align: center;
-  backdrop-filter: blur(10px); /* Optional: Add blur effect */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+  backdrop-filter: blur(10px);
+  /* Optional: Add blur effect */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  /* Optional: Add shadow for depth */
   margin-bottom: 15px;
 }
 
 .scrollable-content {
-  margin-top: 135px; /* Push content below the header */
+  margin-top: 135px;
+  /* Push content below the header */
   overflow-y: auto;
   flex-grow: 1;
   padding: 20px;
@@ -167,7 +194,8 @@ header {
 
 
 header h1 {
-  font-family: 'Poppins', sans-serif; /* Modern font for headings */
+  font-family: 'Poppins', sans-serif;
+  /* Modern font for headings */
   font-size: 2em;
   color: #333;
 }
@@ -186,7 +214,8 @@ header a {
 }
 
 header a:hover {
-  color: #ff6b6b; /* Coral color on hover */
+  color: #ff6b6b;
+  /* Coral color on hover */
 }
 
 .projects {
@@ -206,12 +235,13 @@ header a:hover {
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   padding: 0px;
-  
+
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-tile:hover {
-  transform: translateY(-5px); /* Hover lift effect */
+  transform: translateY(-5px);
+  /* Hover lift effect */
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -258,18 +288,21 @@ header a:hover {
   font-size: 1em;
   line-height: 1.6;
   margin-bottom: 20px;
+  text-align: justify;
 }
 
 .project-content a {
   font-family: 'Poppins', sans-serif;
-  color: #4ecdc4; /* Teal color */
+  color: #4ecdc4;
+  /* Teal color */
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .project-content a:hover {
-  color: #ff6b6b; /* Coral color on hover */
+  color: #ff6b6b;
+  /* Coral color on hover */
 }
 
 
@@ -298,7 +331,8 @@ header a:hover {
   right: 0;
   bottom: 0;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 100%);
-  pointer-events: none; /* Ensure the overlay doesn't block interactions */
+  pointer-events: none;
+  /* Ensure the overlay doesn't block interactions */
 }
 
 /* Accordion styling */
@@ -314,7 +348,8 @@ header a:hover {
 }
 
 .accordion:hover {
-  transform: translateY(-5px); /* Hover lift effect similar to portfolio tiles */
+  transform: translateY(-5px);
+  /* Hover lift effect similar to portfolio tiles */
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -333,19 +368,25 @@ header a:hover {
 }
 
 .accordion-header:hover {
-  background-color: #e0e0e0; /* Change background color on hover */
+  background-color: #e0e0e0;
+  /* Change background color on hover */
 }
 
 /* Smooth transition for content opening */
 .accordion-content {
-  overflow: hidden; /* Hide content when closed */
-  height: 0; /* Default height */
-  transition: height 0.3s ease; /* Smooth height change */
+  overflow: hidden;
+  /* Hide content when closed */
+  height: 0;
+  /* Default height */
+  transition: height 0.3s ease;
+  /* Smooth height change */
 }
 
 .accordion-inner-content {
-  padding: 20px 20px 0px 20px; /* Padding for the inner content */
-  background-color: #ffffff; /* White background for content */
+  padding: 20px 20px 0px 20px;
+  /* Padding for the inner content */
+  background-color: #ffffff;
+  /* White background for content */
 }
 
 .accordion-content p {
@@ -408,18 +449,21 @@ header a:hover {
 .fade-exit-active {
   opacity: 0;
   transition: opacity 300ms ease-in-out;
-  z-index: 1; /* Ensure exiting element is still visible during exit */
+  z-index: 1;
+  /* Ensure exiting element is still visible during exit */
 }
 
 /* Enter Transition */
 .fade-enter {
-  opacity: 0; /* Start with the element fully invisible */
+  opacity: 0;
+  /* Start with the element fully invisible */
 }
 
 .fade-enter-active {
   opacity: 1;
   transition: opacity 500ms ease-in;
-  z-index: 5; /* Entering element is on top */
+  z-index: 5;
+  /* Entering element is on top */
 }
 
 /* Position the page content absolutely */

@@ -6,9 +6,17 @@ import project3image from '../img/project3.png';
 import project4image from '../img/project4.png';
 import project5image from '../img/project5.png';
 import project6image from '../img/project7.png';
+import project7image from '../img/alpha_blog_screenshot.png'
 
 function Projects() {
   const projects = [
+    {
+      title: 'Alpha-Blog',
+      content: 'A Ruby on Rails + Bootstrap web app with authentication and role-based authorization (admin vs user), CRUD posts, and category tagging (many-to-many). Deployed via Render using Neon for Postgres.',
+      link: 'https://alpha-blog-yeqz.onrender.com/',
+      linkText: 'View Project 1',
+      image: project7image,
+    },
     {
       title: 'Track My Degree',
       content: 'A web application that allows students to track their degree progress through a user-friendly interface that displays their courses, degree requirements, and credit calculations. Developed with React, Node.js, and SQL.',
