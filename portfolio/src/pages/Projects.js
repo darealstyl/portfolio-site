@@ -13,7 +13,7 @@ function Projects() {
     {
       title: 'Alpha-Blog',
       content: 'A Ruby on Rails + Bootstrap web app with authentication and role-based authorization (admin vs user), CRUD posts, and category tagging (many-to-many). Deployed via Render using Neon for Postgres.',
-      link: 'https://alpha-blog-yeqz.onrender.com/',
+      link: 'https://github.com/darealstyl/alpha-blog',
       linkText: 'View Project 1',
       image: project7image,
     },
